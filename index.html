@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StayEase Hotel Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">StayEase Hotel</p>
+          <h1>Reservation Dashboard</h1>
+        </div>
+        <button id="resetDataBtn" class="secondary-btn" type="button">
+          Reset Demo Data
+        </button>
+      </header>
+
+      <main>
+        <section class="stats-grid" aria-label="hotel statistics overview">
+          <article class="stat-card">
+            <span>Total Guests</span>
+            <strong id="totalGuests">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Available Rooms</span>
+            <strong id="availableRoomsCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Occupied Rooms</span>
+            <strong id="occupiedRoomsCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Reservations</span>
+            <strong id="totalReservations">0</strong>
+          </article>
+        </section>
+
+        <div class="panel-grid two-col">
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Register Guest</h2>
+            </div>
+            <form id="guestForm" class="stack-form">
+              <label>
+                <span>Name</span>
+                <input
+                  type="text"
+                  id="guestName"
+                  name="guestName"
+                  placeholder="Enter guest name"
+                  required
+                />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input
+                  type="tel"
+                  id="guestPhone"
+                  name="guestPhone"
+                  placeholder="Enter phone number"
+                  required
+                />
+              </label>
+              <label>
+                <span>Email</span>
+                <input
+                  type="email"
+                  id="guestEmail"
+                  name="guestEmail"
+                  placeholder="Enter email address"
+                  required
+                />
+              </label>
+              <button class="primary-btn" type="submit">Add Guest</button>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Create Reservation</h2>
+            </div>
+            <form id="reservationForm" class="stack-form">
+              <label>
+                <span>Guest</span>
+                <select
+                  id="reservationGuest"
+                  name="reservationGuest"
+                  required
+                ></select>
+              </label>
+              <label>
+                <span>Room</span>
+                <select
+                  id="reservationRoom"
+                  name="reservationRoom"
+                  required
+                ></select>
+              </label>
+              <div class="split-fields">
+                <label>
+                  <span>Check-in</span>
+                  <input
+                    type="date"
+                    id="checkInDate"
+                    name="checkInDate"
+                    required
+                  />
+                </label>
+                <label>
+                  <span>Check-out</span>
+                  <input
+                    type="date"
+                    id="checkOutDate"
+                    name="checkOutDate"
+                    required
+                  />
+                </label>
+              </div>
+              <button class="primary-btn" type="submit">Reserve Room</button>
+            </form>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Room Availability</h2>
+          </div>
+          <div id="roomsContainer" class="rooms-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Reservations</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Reservation ID</th>
+                  <th>Guest</th>
+                  <th>Room</th>
+                  <th>Dates</th>
+                  <th>Nights</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reservationTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
